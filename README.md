@@ -1,39 +1,81 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Component Library
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+## Table of Contents
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Design System](#design-system)
+* [Foundation](#foundation)
+* [Components](#components)
+    + [Atom](#atom)
+    + [Molecule](#molecule)
+    + [Organism](#organism)
+* [Component Gallery](#compnent_gallery)
+* [Technical Note](#technical_note)
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Introduction
 
-## Features
+Flutter module for theming and components for flutter projects.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
 
-## Getting started
+TODO
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Design System
 
-## Usage
+Supports two design systems at the moment:
+- `DesignSystem.oceanBlue`
+- `DesignSystem.scarletRed`
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+## Foundation
 
-```dart
-const like = 'sample';
-```
+Foundation defines the basic constructs needed for a design system.
+- `Colors`
+- `Text Style`
+- `Values and Dimen`
 
-## Additional information
+## Components
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Components are common widget used in projects. There are three types of components:
+- `Atom`
+- `Molecule`
+- `Organism`
+
+### Atom
+
+Atoms are basic components and building block elements in a design system.
+Currently supported atoms are:
+- `Button`
+- `Card`
+- `Checkbox`
+- `Divider`
+- `Shapes`
+- `Slider`
+- `Switch`
+- `Text`
+- `Text Field`
+
+### Molecule
+
+Molecule are combination of few atoms.
+Currently supported molecules are:
+- `App Bar`
+- `Badge`
+- `Navigation Bar`
+- `Tile`
+
+### Organism
+
+Organism are combination of few molecule and are complex components.
+Currently supported organism are:
+- `Bottom Sheet`
+- `List`
+-
+### Component Gallery
+
+To see the component action head over to [Component Gallery](https://github.com/may-andro/component_gallery)
+
+### Technical Note
+
+The theme is exposed via `CLThemeProviderWidget` which uses Provider State Management.
+TODO
