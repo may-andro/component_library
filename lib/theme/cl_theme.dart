@@ -13,7 +13,7 @@ class CLTheme with _$CLTheme {
     required final DesignSystem designSystem,
     required final Brightness brightness,
     required final bool isIOS,
-    required final AdaptiveWindowType windowType,
+    required final AdaptiveWindowType adaptiveWindowType,
   }) = _CLTheme;
 
   CLTheme._() {
@@ -21,7 +21,7 @@ class CLTheme with _$CLTheme {
   }
 
   num get _appGrid {
-    switch (windowType) {
+    switch (adaptiveWindowType) {
       case AdaptiveWindowType.xsmall:
         return 4;
       case AdaptiveWindowType.small:

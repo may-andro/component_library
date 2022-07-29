@@ -22,12 +22,12 @@ class _$CLThemeTearOff {
       {required DesignSystem designSystem,
       required Brightness brightness,
       required bool isIOS,
-      required AdaptiveWindowType windowType}) {
+      required AdaptiveWindowType adaptiveWindowType}) {
     return _CLTheme(
       designSystem: designSystem,
       brightness: brightness,
       isIOS: isIOS,
-      windowType: windowType,
+      adaptiveWindowType: adaptiveWindowType,
     );
   }
 }
@@ -40,7 +40,8 @@ mixin _$CLTheme {
   DesignSystem get designSystem => throw _privateConstructorUsedError;
   Brightness get brightness => throw _privateConstructorUsedError;
   bool get isIOS => throw _privateConstructorUsedError;
-  AdaptiveWindowType get windowType => throw _privateConstructorUsedError;
+  AdaptiveWindowType get adaptiveWindowType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CLThemeCopyWith<CLTheme> get copyWith => throw _privateConstructorUsedError;
@@ -54,7 +55,7 @@ abstract class $CLThemeCopyWith<$Res> {
       {DesignSystem designSystem,
       Brightness brightness,
       bool isIOS,
-      AdaptiveWindowType windowType});
+      AdaptiveWindowType adaptiveWindowType});
 }
 
 /// @nodoc
@@ -70,7 +71,7 @@ class _$CLThemeCopyWithImpl<$Res> implements $CLThemeCopyWith<$Res> {
     Object? designSystem = freezed,
     Object? brightness = freezed,
     Object? isIOS = freezed,
-    Object? windowType = freezed,
+    Object? adaptiveWindowType = freezed,
   }) {
     return _then(_value.copyWith(
       designSystem: designSystem == freezed
@@ -85,9 +86,9 @@ class _$CLThemeCopyWithImpl<$Res> implements $CLThemeCopyWith<$Res> {
           ? _value.isIOS
           : isIOS // ignore: cast_nullable_to_non_nullable
               as bool,
-      windowType: windowType == freezed
-          ? _value.windowType
-          : windowType // ignore: cast_nullable_to_non_nullable
+      adaptiveWindowType: adaptiveWindowType == freezed
+          ? _value.adaptiveWindowType
+          : adaptiveWindowType // ignore: cast_nullable_to_non_nullable
               as AdaptiveWindowType,
     ));
   }
@@ -102,7 +103,7 @@ abstract class _$CLThemeCopyWith<$Res> implements $CLThemeCopyWith<$Res> {
       {DesignSystem designSystem,
       Brightness brightness,
       bool isIOS,
-      AdaptiveWindowType windowType});
+      AdaptiveWindowType adaptiveWindowType});
 }
 
 /// @nodoc
@@ -119,7 +120,7 @@ class __$CLThemeCopyWithImpl<$Res> extends _$CLThemeCopyWithImpl<$Res>
     Object? designSystem = freezed,
     Object? brightness = freezed,
     Object? isIOS = freezed,
-    Object? windowType = freezed,
+    Object? adaptiveWindowType = freezed,
   }) {
     return _then(_CLTheme(
       designSystem: designSystem == freezed
@@ -134,9 +135,9 @@ class __$CLThemeCopyWithImpl<$Res> extends _$CLThemeCopyWithImpl<$Res>
           ? _value.isIOS
           : isIOS // ignore: cast_nullable_to_non_nullable
               as bool,
-      windowType: windowType == freezed
-          ? _value.windowType
-          : windowType // ignore: cast_nullable_to_non_nullable
+      adaptiveWindowType: adaptiveWindowType == freezed
+          ? _value.adaptiveWindowType
+          : adaptiveWindowType // ignore: cast_nullable_to_non_nullable
               as AdaptiveWindowType,
     ));
   }
@@ -149,7 +150,7 @@ class _$_CLTheme extends _CLTheme {
       {required this.designSystem,
       required this.brightness,
       required this.isIOS,
-      required this.windowType})
+      required this.adaptiveWindowType})
       : super._();
 
   @override
@@ -159,11 +160,11 @@ class _$_CLTheme extends _CLTheme {
   @override
   final bool isIOS;
   @override
-  final AdaptiveWindowType windowType;
+  final AdaptiveWindowType adaptiveWindowType;
 
   @override
   String toString() {
-    return 'CLTheme(designSystem: $designSystem, brightness: $brightness, isIOS: $isIOS, windowType: $windowType)';
+    return 'CLTheme(designSystem: $designSystem, brightness: $brightness, isIOS: $isIOS, adaptiveWindowType: $adaptiveWindowType)';
   }
 
   @override
@@ -177,7 +178,7 @@ class _$_CLTheme extends _CLTheme {
                 .equals(other.brightness, brightness) &&
             const DeepCollectionEquality().equals(other.isIOS, isIOS) &&
             const DeepCollectionEquality()
-                .equals(other.windowType, windowType));
+                .equals(other.adaptiveWindowType, adaptiveWindowType));
   }
 
   @override
@@ -186,7 +187,7 @@ class _$_CLTheme extends _CLTheme {
       const DeepCollectionEquality().hash(designSystem),
       const DeepCollectionEquality().hash(brightness),
       const DeepCollectionEquality().hash(isIOS),
-      const DeepCollectionEquality().hash(windowType));
+      const DeepCollectionEquality().hash(adaptiveWindowType));
 
   @JsonKey(ignore: true)
   @override
@@ -199,7 +200,7 @@ abstract class _CLTheme extends CLTheme {
       {required DesignSystem designSystem,
       required Brightness brightness,
       required bool isIOS,
-      required AdaptiveWindowType windowType}) = _$_CLTheme;
+      required AdaptiveWindowType adaptiveWindowType}) = _$_CLTheme;
   _CLTheme._() : super._();
 
   @override
@@ -209,7 +210,7 @@ abstract class _CLTheme extends CLTheme {
   @override
   bool get isIOS;
   @override
-  AdaptiveWindowType get windowType;
+  AdaptiveWindowType get adaptiveWindowType;
   @override
   @JsonKey(ignore: true)
   _$CLThemeCopyWith<_CLTheme> get copyWith =>
