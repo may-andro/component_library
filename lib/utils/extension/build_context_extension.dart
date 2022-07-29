@@ -1,5 +1,5 @@
 import 'package:component_library/theme/cl_theme.dart';
-import 'package:component_library/theme/cl_theme_provider.dart';
+import 'package:component_library/theme/cl_theme_widget.dart';
 import 'package:flutter/material.dart';
 
 extension BuildContextExtension on BuildContext {
