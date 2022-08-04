@@ -1,5 +1,7 @@
 import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 import 'package:component_library/component_library.dart';
+import 'package:component_library/foundation/color/foundation_color_pallet.dart';
+import 'package:component_library/utils/extension/design_system_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -38,4 +40,9 @@ class CLTheme with _$CLTheme {
   }
 
   num grid([final double factor = 0]) => factor * _grid;
+
+  FoundationColorPallet get foundationColorPallet =>
+      designSystem.colorBrightnessMapper.getColorPallet(brightness);
+
+
 }
