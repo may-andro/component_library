@@ -88,14 +88,14 @@ class _IdleStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Visibility(
-          visible: iconData != null,
-          child: _ImageWidget(
+        if (iconData != null) ...[
+          _ImageWidget(
             iconData: iconData!,
             size: size,
-          ),
-        ),
+          )
+        ],
         _TextWidget(
           data: data,
           textColor: textColor,
