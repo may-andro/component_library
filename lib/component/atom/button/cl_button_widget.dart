@@ -89,8 +89,8 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
 }
 
 class CLButtonWidget extends StatelessWidget {
-  const CLButtonWidget({
-    required this.label,
+  const CLButtonWidget(
+    this.label, {
     required this.style,
     this.size = CLButtonSize.regular,
     this.isLoading = false,
