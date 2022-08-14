@@ -31,8 +31,10 @@ class CLFabWidget extends StatelessWidget {
     final clTheme = context.clTheme;
     final buttonColor =
         (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
-    final defaultColor =
-        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey10);
+    final defaultColor = context.brightnessMapper(
+      light: CLThemeColor.grey90,
+      dark: CLThemeColor.grey10,
+    );
     final buttonIconColor =
         (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
 
