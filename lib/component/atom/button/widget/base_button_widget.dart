@@ -50,6 +50,7 @@ class BaseButtonWidget extends StatelessWidget {
       ),
       child: SizedBox(
         height: size.buttonHeight * context.textScaleFactor,
+        width: double.infinity,
         child: isLoading
             ? _LoadingStateWidget(color: textColor.toColor(clTheme.colorPallet))
             : _IdleStateWidget(

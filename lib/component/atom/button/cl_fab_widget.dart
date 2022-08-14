@@ -28,10 +28,12 @@ class CLFabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
-    final buttonColor = (backgroundColor ?? CLThemeColor.secondary)
-        .toColor(clTheme.colorPallet);
+    final buttonColor =
+        (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
+    final defaultColor =
+        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey90);
     final buttonIconColor =
-        (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
+        (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
 
     return FloatingActionButton(
       focusColor: buttonColor,

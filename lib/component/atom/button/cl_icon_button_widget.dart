@@ -26,14 +26,16 @@ class CLIconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
     final iconSize = size.iconButtonSize * context.textScaleFactor;
-    final buttonColor = (backgroundColor ?? CLThemeColor.secondary)
-        .toColor(clTheme.colorPallet);
+    final buttonColor =
+        (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
+    final defaultColor =
+        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey90);
     final buttonIconColor =
-        (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
+        (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
 
     return SizedBox(
       height: iconSize,
-      width: iconSize,
+      width: double.infinity,
       child: Material(
         color: buttonColor,
         borderRadius: clTheme.dimenRadius.buttonRadius,
@@ -60,7 +62,7 @@ class _LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
     return Padding(
-      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
+      padding: EdgeInsets.all(clTheme.grid(0.75)),
       child: const CircularProgressIndicator(),
     );
   }

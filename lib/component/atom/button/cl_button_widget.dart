@@ -26,8 +26,8 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
     switch (this) {
       case CLButtonStyle.filled:
         return buildContext.brightnessMapper(
-          CLThemeColor.grey90,
           CLThemeColor.grey10,
+          CLThemeColor.grey90,
         );
       case CLButtonStyle.outlined:
         return CLThemeColor.grey90;
