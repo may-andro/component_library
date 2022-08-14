@@ -29,7 +29,7 @@ class CLIconButtonWidget extends StatelessWidget {
     final buttonColor =
         (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
     final defaultColor =
-        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey90);
+        context.brightnessMapper(CLThemeColor.grey90, CLThemeColor.grey90);
     final buttonIconColor =
         (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
 
