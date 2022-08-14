@@ -46,6 +46,7 @@ class CLIconButtonWidget extends StatelessWidget {
                 ? const _LoadingWidget()
                 : Icon(
                     iconData,
+                    size: size.iconSize,
                     color: buttonIconColor,
                   ),
           ),
@@ -61,9 +62,11 @@ class _LoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
-    return Padding(
-      padding: EdgeInsets.all(clTheme.grid(0.75)),
-      child: const CircularProgressIndicator(),
+    return FittedBox(
+      child: Padding(
+        padding: EdgeInsets.all(clTheme.grid()),
+        child: const CircularProgressIndicator(),
+      ),
     );
   }
 }

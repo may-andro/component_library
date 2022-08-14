@@ -45,7 +45,7 @@ class CLFabWidget extends StatelessWidget {
       onPressed: onPressed,
       mini: mini,
       shape: const RoundedRectangleBorder(),
-      child: isLoading ? const _LoadingStateWidget() : Icon(iconData),
+      child: isLoading ? Icon(iconData) : const _LoadingStateWidget(),
     );
   }
 }
@@ -56,9 +56,11 @@ class _LoadingStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
-    return Padding(
-      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
-      child: const CircularProgressIndicator(),
+    return FittedBox(
+      child: Padding(
+        padding: EdgeInsets.all(clTheme.grid()),
+        child: const CircularProgressIndicator(),
+      ),
     );
   }
 }

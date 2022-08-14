@@ -71,10 +71,14 @@ class _LoadingStateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final clTheme = context.clTheme;
     return FittedBox(
-      child: CircularProgressIndicator(
-        color: color,
-        strokeWidth: _loadingProgressWidth,
+      child: Padding(
+        padding: EdgeInsets.all(clTheme.grid()),
+        child: CircularProgressIndicator(
+          color: color,
+          strokeWidth: _loadingProgressWidth,
+        ),
       ),
     );
   }
