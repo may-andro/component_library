@@ -13,4 +13,8 @@ extension BuildContextExtension on BuildContext {
   Brightness get platformBrightness => MediaQuery.of(this).platformBrightness;
 
   double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
+
+  T brightnessMapper<T>(T light, T dark) {
+    return platformBrightness == Brightness.light ? light : dark;
+  }
 }

@@ -5,6 +5,8 @@ import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
 import 'package:flutter/material.dart';
 
+const _loadingProgressWidth = 2.0;
+
 class BaseButtonWidget extends StatelessWidget {
   const BaseButtonWidget({
     required this.label,
@@ -49,7 +51,7 @@ class BaseButtonWidget extends StatelessWidget {
       child: SizedBox(
         height: size.buttonHeight * context.textScaleFactor,
         child: isLoading
-            ? const _LoadingStateWidget()
+            ? _LoadingStateWidget(color: textColor.toColor(clTheme.colorPallet))
             : _IdleStateWidget(
                 data: label,
                 textColor: textColor,
@@ -62,14 +64,19 @@ class BaseButtonWidget extends StatelessWidget {
 }
 
 class _LoadingStateWidget extends StatelessWidget {
-  const _LoadingStateWidget({Key? key}) : super(key: key);
+  const _LoadingStateWidget({required this.color, Key? key}) : super(key: key);
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
     return Padding(
       padding: EdgeInsets.all(clTheme.grid(0.75).toDouble()),
-      child: CircularProgressIndicator(color: clTheme.colorPallet.grey90),
+      child: CircularProgressIndicator(
+        color: color,
+        strokeWidth: _loadingProgressWidth,
+      ),
     );
   }
 }

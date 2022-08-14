@@ -22,10 +22,13 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
     }
   }
 
-  CLThemeColor get textColor {
+  CLThemeColor getTextColor(BuildContext buildContext) {
     switch (this) {
       case CLButtonStyle.filled:
-        return CLThemeColor.grey10;
+        return buildContext.brightnessMapper(
+          CLThemeColor.grey90,
+          CLThemeColor.grey10,
+        );
       case CLButtonStyle.outlined:
         return CLThemeColor.grey90;
       case CLButtonStyle.ghost:
@@ -90,7 +93,7 @@ class CLButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       isLoading: isLoading,
       backgroundColor: style.backgroundColor,
-      textColor: style.textColor,
+      textColor: style.getTextColor(context),
       shape: style.getShape(clTheme),
       elevation: elevation,
     );
