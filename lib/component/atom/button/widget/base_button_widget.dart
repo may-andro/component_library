@@ -68,8 +68,8 @@ class _LoadingStateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
     return Padding(
-      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
-      child: const CircularProgressIndicator(),
+      padding: EdgeInsets.all(clTheme.grid(0.75).toDouble()),
+      child: CircularProgressIndicator(color: clTheme.colorPallet.grey90),
     );
   }
 }
