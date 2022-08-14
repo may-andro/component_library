@@ -22,4 +22,6 @@ enum CLThemeColor {
 	grey90,
 	grey100,
 	transparent,
+  white,
+  black
 }

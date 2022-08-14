@@ -51,6 +51,10 @@ extension ThemeColorExtension on CLThemeColor {
         return colorPallet.grey100;
       case CLThemeColor.transparent:
         return colorPallet.transparent;
+      case CLThemeColor.white:
+        return colorPallet.white;
+      case CLThemeColor.black:
+        return colorPallet.black;
     }
   }
 }

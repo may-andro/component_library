@@ -29,12 +29,8 @@ class CLIconButtonWidget extends StatelessWidget {
     final iconSize = size.iconButtonSize * context.textScaleFactor;
     final buttonColor =
         (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
-    final defaultColor = context.brightnessMapper(
-      light: CLThemeColor.grey10,
-      dark: CLThemeColor.grey10,
-    );
     final buttonIconColor =
-        (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
+        (iconColor ?? CLThemeColor.grey10).toColor(clTheme.colorPallet);
 
     return SizedBox(
       height: iconSize,
