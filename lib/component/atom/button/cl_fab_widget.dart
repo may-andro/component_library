@@ -1,8 +1,11 @@
 import 'package:component_library/foundation/color/cl_theme_color.dart';
-import 'package:component_library/utils/extension/app_theme_extension.dart';
 import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
 import 'package:flutter/material.dart';
+
+const _elevation = 6.0;
+const _disabledElevation = 2.0;
+const _focusElevation = 4.0;
 
 class CLFabWidget extends StatelessWidget {
   const CLFabWidget({
@@ -25,22 +28,35 @@ class CLFabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
-    final buttonColor = (backgroundColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
-    final buttonIconColor = (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
+    final buttonColor = (backgroundColor ?? CLThemeColor.secondary)
+        .toColor(clTheme.colorPallet);
+    final buttonIconColor =
+        (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
 
     return FloatingActionButton(
       focusColor: buttonColor,
       foregroundColor: buttonIconColor,
       hoverColor: buttonIconColor.withOpacity(0.4),
-      elevation: 6,
-      disabledElevation: 2,
-      focusElevation: 5,
+      elevation: _elevation,
+      disabledElevation: _disabledElevation,
+      focusElevation: _focusElevation,
       onPressed: onPressed,
       mini: mini,
       shape: const RoundedRectangleBorder(),
-      child: Icon(
-        iconData,
-      ),
+      child: isLoading ? const _LoadingStateWidget() : Icon(iconData),
+    );
+  }
+}
+
+class _LoadingStateWidget extends StatelessWidget {
+  const _LoadingStateWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final clTheme = context.clTheme;
+    return Padding(
+      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
+      child: const CircularProgressIndicator(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:component_library/component/atom/button/cl_button_size.dart';
 import 'package:component_library/component_library.dart';
 import 'package:component_library/utils/extension/app_theme_extension.dart';
-import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +26,10 @@ class CLIconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final clTheme = context.clTheme;
     final iconSize = size.iconButtonSize * context.textScaleFactor;
-    final buttonColor = (backgroundColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
-    final buttonIconColor = (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
+    final buttonColor = (backgroundColor ?? CLThemeColor.secondary)
+        .toColor(clTheme.colorPallet);
+    final buttonIconColor =
+        (iconColor ?? CLThemeColor.secondary).toColor(clTheme.colorPallet);
 
     return SizedBox(
       height: iconSize,
@@ -57,6 +58,10 @@ class _LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final clTheme = context.clTheme;
+    return Padding(
+      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
+      child: const CircularProgressIndicator(),
+    );
   }
 }

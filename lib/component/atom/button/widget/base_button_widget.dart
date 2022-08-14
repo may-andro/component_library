@@ -1,7 +1,6 @@
 import 'package:component_library/component/atom/button/cl_button_size.dart';
 import 'package:component_library/component/atom/text/cl_text_widget.dart';
 import 'package:component_library/foundation/color/cl_theme_color.dart';
-import 'package:component_library/utils/extension/app_theme_extension.dart';
 import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +66,11 @@ class _LoadingStateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircularProgressIndicator();
+    final clTheme = context.clTheme;
+    return Padding(
+      padding: EdgeInsets.all(clTheme.grid(0.5).toDouble()),
+      child: const CircularProgressIndicator(),
+    );
   }
 }
 
@@ -87,20 +90,15 @@ class _IdleStateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final clTheme = context.clTheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (iconData != null) ...[
-          _ImageWidget(
-            iconData: iconData!,
-            size: size,
-          )
+          _ImageWidget(iconData: iconData!, size: size)
         ],
-        _TextWidget(
-          data: data,
-          textColor: textColor,
-          size: size,
-        ),
+        SizedBox(width: clTheme.grid(0.5)),
+        _TextWidget(data: data, textColor: textColor, size: size),
       ],
     );
   }

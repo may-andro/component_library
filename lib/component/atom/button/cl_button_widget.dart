@@ -6,32 +6,15 @@ import 'package:component_library/utils/extension/app_theme_extension.dart';
 import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:flutter/material.dart';
 
-enum CLButtonStyle { elevated, filled, toned, outlined, ghost }
+const _outlinedBorderWidth = 2.0;
+
+enum CLButtonStyle { filled, outlined, ghost }
 
 extension CLButtonStyleExtenstion on CLButtonStyle {
-  double get elevation {
-    switch (this) {
-      case CLButtonStyle.elevated:
-        return 2.0;
-      case CLButtonStyle.filled:
-        return 0.0;
-      case CLButtonStyle.toned:
-        return 0.0;
-      case CLButtonStyle.outlined:
-        return 0.0;
-      case CLButtonStyle.ghost:
-        return 0.0;
-    }
-  }
-
   CLThemeColor get backgroundColor {
     switch (this) {
-      case CLButtonStyle.elevated:
-        return CLThemeColor.primary;
       case CLButtonStyle.filled:
         return CLThemeColor.primary;
-      case CLButtonStyle.toned:
-        return CLThemeColor.primaryVariant;
       case CLButtonStyle.outlined:
         return CLThemeColor.transparent;
       case CLButtonStyle.ghost:
@@ -41,11 +24,7 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
 
   CLThemeColor get textColor {
     switch (this) {
-      case CLButtonStyle.elevated:
-        return CLThemeColor.grey10;
       case CLButtonStyle.filled:
-        return CLThemeColor.grey10;
-      case CLButtonStyle.toned:
         return CLThemeColor.grey10;
       case CLButtonStyle.outlined:
         return CLThemeColor.grey90;
@@ -56,15 +35,7 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
 
   OutlinedBorder getShape(CLTheme clTheme) {
     switch (this) {
-      case CLButtonStyle.elevated:
-        return RoundedRectangleBorder(
-          borderRadius: clTheme.dimenRadius.buttonRadius,
-        );
       case CLButtonStyle.filled:
-        return RoundedRectangleBorder(
-          borderRadius: clTheme.dimenRadius.buttonRadius,
-        );
-      case CLButtonStyle.toned:
         return RoundedRectangleBorder(
           borderRadius: clTheme.dimenRadius.buttonRadius,
         );
@@ -73,7 +44,7 @@ extension CLButtonStyleExtenstion on CLButtonStyle {
           borderRadius: clTheme.dimenRadius.buttonRadius,
           side: BorderSide(
             color: clTheme.colorPallet.grey90,
-            width: 2.0,
+            width: _outlinedBorderWidth,
           ),
         );
       case CLButtonStyle.ghost:
@@ -96,6 +67,7 @@ class CLButtonWidget extends StatelessWidget {
     this.isLoading = false,
     this.iconData,
     this.onPressed,
+    this.elevation = 0,
     Key? key,
   }) : super(key: key);
 
@@ -105,6 +77,7 @@ class CLButtonWidget extends StatelessWidget {
   final CLButtonSize size;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final double elevation;
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +92,7 @@ class CLButtonWidget extends StatelessWidget {
       backgroundColor: style.backgroundColor,
       textColor: style.textColor,
       shape: style.getShape(clTheme),
-      elevation: style.elevation,
+      elevation: elevation,
     );
   }
 }

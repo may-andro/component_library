@@ -40,7 +40,7 @@ class CLTheme with _$CLTheme {
     }
   }
 
-  num grid([final double factor = 0]) => factor * _grid;
+  double grid([final double factor = 0]) => factor * _grid;
 
   FoundationColorPallet get colorPallet =>
       designSystem.colorBrightnessMapper.getColorPallet(brightness);
