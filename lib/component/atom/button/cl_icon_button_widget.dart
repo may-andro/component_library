@@ -1,4 +1,5 @@
 import 'package:component_library/component/atom/button/cl_button_size.dart';
+import 'package:component_library/component/atom/button/widget/loading_state_widget.dart';
 import 'package:component_library/component_library.dart';
 import 'package:component_library/utils/extension/app_theme_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
@@ -43,7 +44,7 @@ class CLIconButtonWidget extends StatelessWidget {
           onTap: onPressed,
           child: Center(
             child: isLoading
-                ? const _LoadingWidget()
+                ? LoadingStateWidget(color: buttonIconColor)
                 : Icon(
                     iconData,
                     size: size.iconSize,
@@ -51,21 +52,6 @@ class CLIconButtonWidget extends StatelessWidget {
                   ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _LoadingWidget extends StatelessWidget {
-  const _LoadingWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final clTheme = context.clTheme;
-    return FittedBox(
-      child: Padding(
-        padding: EdgeInsets.all(clTheme.grid()),
-        child: const CircularProgressIndicator(),
       ),
     );
   }

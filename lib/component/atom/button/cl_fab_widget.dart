@@ -1,3 +1,4 @@
+import 'package:component_library/component/atom/button/widget/loading_state_widget.dart';
 import 'package:component_library/foundation/color/cl_theme_color.dart';
 import 'package:component_library/utils/extension/build_context_extension.dart';
 import 'package:component_library/utils/extension/theme_color_extension.dart';
@@ -31,7 +32,7 @@ class CLFabWidget extends StatelessWidget {
     final buttonColor =
         (backgroundColor ?? CLThemeColor.primary).toColor(clTheme.colorPallet);
     final defaultColor =
-        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey90);
+        context.brightnessMapper(CLThemeColor.grey10, CLThemeColor.grey10);
     final buttonIconColor =
         (iconColor ?? defaultColor).toColor(clTheme.colorPallet);
 
@@ -45,22 +46,9 @@ class CLFabWidget extends StatelessWidget {
       onPressed: onPressed,
       mini: mini,
       shape: const RoundedRectangleBorder(),
-      child: isLoading ? Icon(iconData) : const _LoadingStateWidget(),
-    );
-  }
-}
-
-class _LoadingStateWidget extends StatelessWidget {
-  const _LoadingStateWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final clTheme = context.clTheme;
-    return FittedBox(
-      child: Padding(
-        padding: EdgeInsets.all(clTheme.grid()),
-        child: const CircularProgressIndicator(),
-      ),
+      child: isLoading
+          ? LoadingStateWidget(color: buttonIconColor)
+          : Icon(iconData),
     );
   }
 }
