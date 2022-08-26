@@ -73,7 +73,7 @@ Currently supported organism are:
 -
 ### Component Gallery
 
-To see the component action head over to [Component Gallery](https://github.com/may-andro/component_gallery)
+To see the component action head over to [Component Gallery](https://github.com/may-andro/design_system_gallery)
 
 ### Technical Note
 
